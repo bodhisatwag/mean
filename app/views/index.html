@@ -1,7 +1,7 @@
-{% extends 'layouts/default.html' %}
-{% block content %}
+<% include layouts/includes/header.html %>
+<% include layouts/includes/navigation.html %>
     <section data-ui-view />
     <script type="text/javascript">
-        window.user = {{user|safe}};
+        window.user = <%=user%>;
     </script>
-{% endblock %}
+<% include layouts/includes/footer.html %>

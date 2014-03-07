@@ -1,28 +1,36 @@
 <div class="" data-ng-controller="HeaderController">
-    <ul class="navbar-nav nav">
-        <li>
-            <a class="navbar-brand" href="/">MEAN - A Modern Stack</a>
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="#">MEAN - A Modern Stack</a></h1>
         </li>
-        <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-            <a href="#!/{{item.link}}">{{item.title}}</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav nav pull-right" data-ng-hide="global.authenticated">
-        <li><a href="signup">Signup</a>
-        </li>
-        <li class="divider-vertical"></li>
-        <li><a href="signin">Signin</a>
+        <li class="toggle-topbar menu-icon">
+            <a href="#">Menu</a>
         </li>
     </ul>
-    <ul class="navbar-nav nav pull-right" data-ng-show="global.authenticated">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				{{global.user.name}} <b class="caret"></b>
-			</a>
-            <ul class="dropdown-menu">
-                <li><a href="/signout">Signout</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
+    <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+                <a href="#!/{{item.link}}">{{item.title}}</a>
+            </li>
+        </ul>
+        <!-- Right Nav Section -->
+        <ul class="right" data-ng-hide="global.authenticated">
+            <li><a href="signup">Signup</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="signin">Signin</a>
+            </li>
+        </ul>
+        <ul class="right" data-ng-show="global.authenticated">
+            <li class="has-dropdown">
+                <a href="#">{{global.user.name}}</a>
+                <ul class="dropdown">
+                    <li>
+                        <a href="/signout">Signout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
 </div>
